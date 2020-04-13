@@ -18,6 +18,13 @@ For this project, a dataset provided by [FigureEight](https://www.figure-eight.c
 
 3. Go to http://0.0.0.0:3001/
 
+# Contents
+
+- app/: All the resources used for the designed of the web app are described here
+
+- data/: The original datasets from FigureEight and the script to clean and process the data (ETL pipeline) are included in this directory
+
+- models/: The ML pipeline model and the script that builds it can be found here
 
 # License
 The code used in this repository is licensed under a MIT license included in LICENSE.txt
