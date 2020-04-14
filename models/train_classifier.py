@@ -45,7 +45,10 @@ def tokenize(text):
      - text: text to be tokenize"""
     
     # Tokenize text
-    tokens = nltk.word_tokenize(text)
+    words = nltk.word_tokenize(text)
+    
+    # Remove stopwords 
+    tokens = [w for w in words if w in stopwords.words('english')]
     
     # Initiate lemmatizer
     lemmatizer = WordNetLemmatizer()
