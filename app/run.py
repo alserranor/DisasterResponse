@@ -43,14 +43,17 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    categories_perc = df[df.columns[4:]].sum().sort_values(ascending = False)/len(df)*100
+    categories_names = list(categories_perc.index)
+    
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
                 Bar(
-                    x=genre_names,
-                    y=genre_counts
+                    x = genre_names,
+                    y = genre_counts
                 )
             ],
 
@@ -61,6 +64,27 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x = categories_names,
+                    y = categories_perc
+                )
+            ],
+
+            'layout': {
+                'title': 'Percentage of Messages by Category',
+                'yaxis': {
+                    'title': "Percentage of total messages [%]",
+                    'automargin': True
+                },
+                'xaxis': {
+                    'title': "Category",
+                    'tickangle': -40,
+                    'automargin': True
                 }
             }
         }
